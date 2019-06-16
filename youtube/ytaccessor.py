@@ -10,7 +10,6 @@ from .ytdatabuilder import YouTubeDataBuilder
 
 from googleapiclient.discovery import build
 
-# YOUTUBE_API_KEY = 'AIzaSyAg5tMCT6UV_PEUNMF49kv6sqJ9-6jn1bo'
 YOUTUBE_API_SERVICE_NAME = 'youtube'
 YOUTUBE_API_VERSION = 'v3'
 
@@ -22,14 +21,9 @@ class YouTubeAccessor:
     def __init__(self):
         # log = Logger("DatastoreManager")
         self.log.debug('Initialize')
-        # load_dotenv('.env')
-        # load_dotenv(find_dotenv())
 
-        # dotenv_path = '.env'
         dotenv_path = join(dirname(__file__), '.env')
         load_dotenv(dotenv_path)
-
-        # YOUTUBE_API_KEY = os.environ['YOUTUBE_API_KEY']
 
     def get_youtube_data(self):
         self.log.debug('get_youtube_data')
