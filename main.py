@@ -9,7 +9,9 @@ from crawler.ytcrawler import YouTubeCrawler
 
 from util.logger import Logger
 
-app = Flask(__name__)
+# app = Flask(__name__)
+app = Flask(__name__, static_url_path='',
+            static_folder='./app/dist/electone-comm')
 
 
 # testMethod()
@@ -27,7 +29,16 @@ app = Flask(__name__)
 def toppage():
     # dataManager = DatastoreManager()
     # dataManager.createData()
-    return render_template('toppage.html')
+    # return render_template('/src/index.html')
+    # return render_template('index.html')
+    return app.send_static_file('index.html')
+
+
+@app.route('/youtube', methods=['GET'])
+def youtube():
+
+    dataManager = DatastoreManager()
+    return dataManager.get_latest_data()
 
 
 @app.route('/showname')
@@ -61,13 +72,13 @@ def get_one_content(song_id):
     return render_template('/songs/song.html')
 
 
-@app.route('/youtube', methods=['GET'])
-def search_youtube():
+# @app.route('/youtube', methods=['GET'])
+# def search_youtube():
 
-    crawler = YouTubeCrawler()
-    crawler.crawel_youtube()
+#     crawler = YouTubeCrawler()
+#     crawler.crawel_youtube()
 
-    return render_template('/songs/song.html')
+#     return render_template('/songs/song.html')
 
 if __name__ == "__main__":
     app.run(host='127.0.0.1:8000')

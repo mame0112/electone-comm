@@ -3,9 +3,8 @@ from datahandler.builder import AbstractBuilder
 from datahandler.contentdata import ContentData
 
 
-class YouTubeDataBuilder(AbstractBuilder):
-
-    log = Logger("YouTubeDataBuilder")
+class ContentDataBuilder(AbstractBuilder):
+    log = Logger("DatabaseDataBuilder")
 
     def __init__(self):
         self.log.debug('Initialize')

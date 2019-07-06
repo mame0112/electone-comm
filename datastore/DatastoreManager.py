@@ -1,8 +1,11 @@
+import json
+
 from util.logger import Logger
 
 from google.cloud import datastore
 
 from . import dbconsts
+from .dataprocessor import DatastoreProcessor
 
 import threading
 
@@ -42,17 +45,6 @@ class DatastoreManager:
         return
         # self.log.debug('get_song_data')
 
-    def create_data_old(self):
-        datastore_client = datastore.Client()
-        kind = 'song_master'
-        name = 'sampletask1'
-        task_key = datastore_client.key(kind, name)
-        task = datastore.Entity(key=task_key)
-        task['description'] = 'Buy milk'
-        datastore_client.put(task)
-        print('Saved {}: {}'.format(task.key.name, task['description']))
-        return
-
     def create_data(self, song_id):
 
         self.log.debug('create_data')
@@ -66,6 +58,29 @@ class DatastoreManager:
 
         return
 
+    def get_latest_data(self):
+        self.log.debug('get_latest_data')
+
+        client = datastore.Client()
+        query = client.query(kind=dbconsts.KIND_SONG)
+        entities = list(query.fetch())
+
+        jsonobj = {"contents": []}
+        # latest_contents = {}
+
+        for entity in entities:
+
+            processor = DatastoreProcessor()
+            content = processor.convert_entity_to_json(entity)
+            # content = processor.convert_entity_to_contentdata(entity)
+            # self.log.debug(json.dumps(content))
+            # latest_contents.append(content)
+            jsonobj["contents"].append(content)
+
+            # self.log.debug(jsonobj)
+
+        return json.dumps(jsonobj)
+
     def get_data(self, song_id):
 
         self.log.debug('get_data')
@@ -74,10 +89,8 @@ class DatastoreManager:
         key = client.key(dbconsts.KIND_SONG, song_id)
         entity = client.get(key)
 
-        self.log.debug(entity[dbconsts.PROPERTY_NAME])
-        self.log.debug(entity[dbconsts.PROPERTY_THUMBNAIL_URL])
-
-        return
+        data_processor = DatastoreProcessor()
+        return data_processor.convert_entity_to_contentdata(entity)
 
     def store_content(self, content):
         client = datastore.Client()

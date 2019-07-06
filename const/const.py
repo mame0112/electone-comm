@@ -1,0 +1,6 @@
+FIELD_TITLE = "title"
+FIELD__DESCRIPTION = "description"
+FIELD_PUBLISH_DATE = "publish_date"
+FIELD_THUMBNAIL_URI = "thumb_uri"
+FIELD_CHANNEL_TITLE = "channel_title"
+FIELD_VIDEO_ID = "video_id"
