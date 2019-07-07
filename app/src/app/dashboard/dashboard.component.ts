@@ -3,8 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { ContentData } from '../contentdata';
 
 import { ApiService } from '../api.service';
-
 import { DataProcessorService } from '../data-processor.service'
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap' ; 
 
 @Component({
   selector: 'app-dashboard',
