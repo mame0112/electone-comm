@@ -6,6 +6,9 @@ __pycache__/
 youtube/.env
 /youtube/.env
 
+your_log_path.log
+.your_log_path.log
+
 # Byte-compiled / optimized / DLL files
 # __pycache__/
 *.py[cod]

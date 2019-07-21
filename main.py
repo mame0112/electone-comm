@@ -3,6 +3,7 @@ from flask import Flask, render_template, request
 from google.cloud import datastore
 
 from datastore.DatastoreManager import DatastoreManager
+from processor.propertydatamgr import PropertyDataManager
 # from youtube.ytaccessor import YouTubeAccessor
 
 from crawler.ytcrawler import YouTubeCrawler
@@ -34,8 +35,21 @@ def toppage():
     return app.send_static_file('index.html')
 
 
+@app.route('/props', methods=['GET'])
+def tmp_process():
+    processManager = PropertyDataManager()
+    return processManager.save_property_data()
+
+
 @app.route('/youtube', methods=['GET'])
 def youtube():
+
+    dataManager = DatastoreManager()
+    return dataManager.get_latest_data()
+
+
+@app.route('/youtube/<string:video_id>', methods=['GET'])
+def get_category_content():
 
     dataManager = DatastoreManager()
     return dataManager.get_latest_data()

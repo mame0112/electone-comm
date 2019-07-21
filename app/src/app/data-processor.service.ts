@@ -12,23 +12,28 @@ export class DataProcessorService {
 
   // contentsData: ContentsData;
 
-  parseJson2ContentData(jsonobj: any): ContentData[] {
-      console.log('parseJson2ContentData')
+  parseJson2ContentsData(jsonobj: any): ContentData[] {
+      console.log('parseJson2ContentsData')
+      console.log(jsonobj)
+      console.log(jsonobj.contents)
 
       var contents: ContentData[] = [];
 
       // this.contentsData = jsonobj.contents;
 
-      for (var i=0; i<Object.keys(jsonobj.contents).length; i++){
+      if(jsonobj.contents !== undefined) {
+          for (var i=0; i<Object.keys(jsonobj.contents).length; i++){
 
-          var content: ContentData = jsonobj.contents[i];
-          console.log(content.title);
-          contents.push(content);
-       }
+              var content: ContentData = jsonobj.contents[i];
+              console.log(content.title);
+              contents.push(content);
+           }
+      }
 
        return contents;
  
   }
+
 
   stringifyContentData2Json(): void {
 

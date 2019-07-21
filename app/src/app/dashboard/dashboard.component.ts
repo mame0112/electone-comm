@@ -5,6 +5,7 @@ import { ContentData } from '../contentdata';
 import { ApiService } from '../api.service';
 import { DataProcessorService } from '../data-processor.service'
 
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap' ; 
 
 @Component({
@@ -32,10 +33,22 @@ export class DashboardComponent implements OnInit {
       //         this.contents = contents
       //         this.dataProcessorServie.parseJson2ContentData(contents);
       //     });
-      this.apiService.getYoutubeData()
-      .subscribe(param => {
-              this.contents = this.dataProcessorServie.parseJson2ContentData(param)}
-          );
+
+      // TODO
+      // this.apiService.getYoutubeData()
+      // .subscribe(param => {
+      //         this.contents = this.dataProcessorServie.parseJson2ContentsData(param)}
+
+              // TEMPORARY
+
+
+          // );
+
+      // TEMPORARY
+      this.apiService.savePropertyData()
+      .subscribe(param => console.log(param));
+
   }
+
 
 }

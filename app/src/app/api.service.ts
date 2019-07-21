@@ -15,6 +15,7 @@ import { ContentData } from './contentdata';
 export class ApiService {
 
     private url = 'youtube';
+    private props_url = 'props';
 
     constructor(private http: HttpClient) { }
 
@@ -41,10 +42,29 @@ export class ApiService {
         return this.http.get<string>(this.url)
         .pipe(
             tap(heroes => console.log('fetched heroes')),
-            catchError(this.handleError<string>('getHeroes', 'Error'))
+            catchError(this.handleError<string>('getYoutubeData', 'Error'))
             );
 
     }
+
+    getCategoryContents(category_id: string): Observable<string> {
+        const url = `${this.url}/${category_id}`;
+        return this.http.get<string>(this.url)
+        .pipe(
+            tap(heroes => console.log('getCategoryContents')),
+            catchError(this.handleError<string>('getCategoryContents', 'Error'))
+            );
+
+    }
+
+    savePropertyData(): Observable<string> {
+        return this.http.get<string>(this.props_url)
+        .pipe(
+            tap(props => console.log('savePropertyData')),
+            catchError(this.handleError<string>('savePropertyData', 'Error'))
+            );
+    }
+
 
     private handleError<T> (operation = 'operation', result?: T) {
         // console.error('Error ocurred');

@@ -8,11 +8,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SongDetailComponent } from './song-detail/song-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    SongDetailComponent
   ],
   imports: [
     BrowserModule,
