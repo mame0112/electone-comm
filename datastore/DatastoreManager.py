@@ -168,20 +168,16 @@ class DatastoreManager:
             self.log.debug(len(contents))
 
             if len(contents) is not 0:
-                self.log.debug('A')
                 key = client.key(kind_name, i)
                 entity = client.get(key)
 
                 # If entity for content already exist
                 if entity is not None and len(entity[dbconsts.PROPERTY_CONTENTS_DATA]) is not 0:
-                    self.log.debug('B')
                     content_list_json = entity[dbconsts.PROPERTY_CONTENTS_DATA]
                     for j in range(len(contents)):
-                        self.log.debug('C')
                         content_list_json.append(contents[j])
                     client.put(entity)
                 else:
-                    self.log.debug('D')
                     # Otherwise (New Entity for this property)
                     entity_new = datastore.Entity(key=key)
                     entity_new[dbconsts.PROPERTY_CONTENTS_DATA] = contents

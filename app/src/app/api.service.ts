@@ -8,14 +8,16 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 import { ContentData } from './contentdata';
 
+import { Constants } from './constants'
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class ApiService {
 
-    private url = 'youtube';
-    private props_url = 'props';
+    // private url = 'youtube';
+    // private props_url = 'props';
 
     constructor(private http: HttpClient) { }
 
@@ -39,7 +41,7 @@ export class ApiService {
     // }
 
     getYoutubeData(): Observable<string> {
-        return this.http.get<string>(this.url)
+        return this.http.get<string>(Constants.url)
         .pipe(
             tap(heroes => console.log('fetched heroes')),
             catchError(this.handleError<string>('getYoutubeData', 'Error'))
@@ -48,8 +50,8 @@ export class ApiService {
     }
 
     getCategoryContents(category_id: string): Observable<string> {
-        const url = `${this.url}/${category_id}`;
-        return this.http.get<string>(this.url)
+        const url = `${Constants.url}/${category_id}`;
+        return this.http.get<string>(Constants.url)
         .pipe(
             tap(heroes => console.log('getCategoryContents')),
             catchError(this.handleError<string>('getCategoryContents', 'Error'))
@@ -58,7 +60,7 @@ export class ApiService {
     }
 
     savePropertyData(): Observable<string> {
-        return this.http.get<string>(this.props_url)
+        return this.http.get<string>(Constants.props_url)
         .pipe(
             tap(props => console.log('savePropertyData')),
             catchError(this.handleError<string>('savePropertyData', 'Error'))
