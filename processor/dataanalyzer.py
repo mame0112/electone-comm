@@ -20,6 +20,6 @@ class DataAnalyzer:
 
         self.propertyData.difficulty = DifficultyAnalyzer().analyze(content)
         self.propertyData.concert = ConcertAnalyzer().analyze(content)
-        self.propertyData.famouns = FamousAnalyzer().analyze(content)
+        self.propertyData.famous = FamousAnalyzer().analyze(content)
 
         return self.propertyData

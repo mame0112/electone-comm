@@ -154,23 +154,35 @@ class DatastoreManager:
         self.log.debug(concert_list)
         self.log.debug(famous_list)
 
-        for i in range(len(difficulty_list)):
+        self.store_property(client, dbconsts.KIND_DIFFICULTY, difficulty_list)
+        self.store_property(client, dbconsts.KIND_CONCERT, concert_list)
+        self.store_property(client, dbconsts.KIND_FAMOUSE, famous_list)
 
-            contents = difficulty_list[str(i)]
+    def store_property(self, client, kind_name, property_list):
+        self.log.debug('store_property')
+
+        for i in range(len(property_list)):
+
+            contents = property_list[str(i)]
+
+            self.log.debug(len(contents))
 
             if len(contents) is not 0:
-                key = client.key(dbconsts.KIND_DIFFICULTY, i)
+                self.log.debug('A')
+                key = client.key(kind_name, i)
                 entity = client.get(key)
 
                 # If entity for content already exist
                 if entity is not None and len(entity[dbconsts.PROPERTY_CONTENTS_DATA]) is not 0:
+                    self.log.debug('B')
                     content_list_json = entity[dbconsts.PROPERTY_CONTENTS_DATA]
-                    self.log.debug(content_list_json)
                     for j in range(len(contents)):
+                        self.log.debug('C')
                         content_list_json.append(contents[j])
                     client.put(entity)
                 else:
-                    # Otherwise (New Entity for this difficulty)
+                    self.log.debug('D')
+                    # Otherwise (New Entity for this property)
                     entity_new = datastore.Entity(key=key)
                     entity_new[dbconsts.PROPERTY_CONTENTS_DATA] = contents
                     client.put(entity_new)

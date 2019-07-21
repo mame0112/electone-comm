@@ -26,6 +26,8 @@ class DataProcessorParser:
         return output
 
     def create_property_json(self, property_list):
+        self.log.debug('create_property_json')
+
         property_json = {}
 
         for i in range(len(property_list)):
