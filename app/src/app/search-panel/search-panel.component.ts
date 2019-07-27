@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ApiService } from '../api.service';
+import { DataProcessorService } from '../data-processor.service';
+
+import { MiniContentData } from '../minicontentdata';
 
 @Component({
   selector: 'app-search-panel',
@@ -19,8 +22,11 @@ export class SearchPanelComponent implements OnInit {
         'famous': this.famous
     }
 
+    contents: MiniContentData[];
 
-    constructor(private apiService: ApiService) { }
+
+    constructor(private apiService: ApiService,
+        private dataProcessorService: DataProcessorService) { }
 
     ngOnInit() {
     }
@@ -34,9 +40,11 @@ export class SearchPanelComponent implements OnInit {
 
         console.log(this.properties)
 
-        this.apiService.searchContentByProperties(JSON.stringify(this.properties))
-        .subscribe(param => console.log(param));
+        // this.apiService.searchContentByProperties(JSON.stringify(this.properties))
+        // .subscribe(results => console.log());
 
+        this.apiService.searchContentByProperties(JSON.stringify(this.properties))
+        .subscribe(results => this.contents = this.dataProcessorService.parseJson2MiniContentsData(results));
 
     }
 

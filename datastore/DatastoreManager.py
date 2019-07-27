@@ -195,6 +195,7 @@ class DatastoreManager:
         famous_list = []
 
         output_list = []
+        jsonobj = {"contents": []}
 
         # key_diff = client.key(dbconsts.KIND_DIFFICULTY, str(difficulty))
         key_diff = client.key(dbconsts.KIND_DIFFICULTY, str(difficulty))
@@ -222,4 +223,6 @@ class DatastoreManager:
                         output_list.append(
                             processor.convert_entity_to_mini_json(diff_list[i]))
 
-        return json.dumps(output_list)
+        jsonobj["contents"] = output_list
+
+        return json.dumps(jsonobj)
