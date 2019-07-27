@@ -13,6 +13,12 @@ export class SearchPanelComponent implements OnInit {
     concert = 0;
     famous = 0;
 
+    properties = {
+        'difficulty': this.difficulty,
+        'concert': this.concert,
+        'famous': this.famous
+    }
+
 
     constructor(private apiService: ApiService) { }
 
@@ -21,9 +27,17 @@ export class SearchPanelComponent implements OnInit {
 
     onSearchClicked(): void {
         console.log('onSearchClicked')
-        console.log(this.difficulty)
-        console.log(this.concert)
-        console.log(this.famous)
+
+        // this.properties.difficulty = this.difficulty;
+        // this.properties.concert = this.concert;
+        // this.properties.famous = this.famous;
+
+        console.log(this.properties)
+
+        this.apiService.searchContentByProperties(JSON.stringify(this.properties))
+        .subscribe(param => console.log(param));
+
+
     }
 
 }

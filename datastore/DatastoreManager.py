@@ -182,3 +182,20 @@ class DatastoreManager:
                     entity_new = datastore.Entity(key=key)
                     entity_new[dbconsts.PROPERTY_CONTENTS_DATA] = contents
                     client.put(entity_new)
+
+    def get_content_by_property(self, properties):
+        self.log.debug('get_content_by_property')
+
+        obj = json.loads(properties)
+        difficulty = obj['difficulty']
+        concert = obj['concert']
+        famous = obj['famous']
+
+        client = datastore.Client()
+
+        key = client.key(dbconsts.KIND_DIFFICULTY, difficulty)
+        entity = client.get(key)
+
+        # TODO
+
+        return

@@ -60,9 +60,19 @@ export class ApiService {
     }
 
     savePropertyData(): Observable<string> {
-        return this.http.get<string>(Constants.props_url)
+        return this.http.get<string>(Constants.props_url_tmp)
         .pipe(
             tap(props => console.log('savePropertyData')),
+            catchError(this.handleError<string>('savePropertyData', 'Error'))
+            );
+    }
+
+    searchContentByProperties(properties: string): Observable<string> {
+        console.log('searchContentByProperties')
+        const url = `${Constants.props_url}/${properties}`;
+        return this.http.get<string>(url)
+        .pipe(
+            tap(props => console.log('searchContentByProperties')),
             catchError(this.handleError<string>('savePropertyData', 'Error'))
             );
     }

@@ -35,10 +35,16 @@ def toppage():
     return app.send_static_file('index.html')
 
 
-@app.route('/props', methods=['GET'])
+@app.route('/props_tmp', methods=['GET'])
 def tmp_process():
     processManager = PropertyDataManager()
     return processManager.save_property_data()
+
+
+@app.route('/props/<string:properties>', methods=['GET'])
+def get_contents_by_property(properties):
+    dataManager = DatastoreManager()
+    return dataManager.get_content_by_property(properties)
 
 
 @app.route('/youtube', methods=['GET'])
