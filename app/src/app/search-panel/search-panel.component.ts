@@ -9,9 +9,9 @@ import { ApiService } from '../api.service';
 })
 export class SearchPanelComponent implements OnInit {
 
-    difficulty = 0;
-    concert = 0;
-    famous = 0;
+    difficulty = 1;
+    concert = 1;
+    famous = 1;
 
     properties = {
         'difficulty': this.difficulty,
@@ -28,9 +28,9 @@ export class SearchPanelComponent implements OnInit {
     onSearchClicked(): void {
         console.log('onSearchClicked')
 
-        // this.properties.difficulty = this.difficulty;
-        // this.properties.concert = this.concert;
-        // this.properties.famous = this.famous;
+        this.properties.difficulty = this.difficulty;
+        this.properties.concert = this.concert;
+        this.properties.famous = this.famous;
 
         console.log(this.properties)
 

@@ -165,10 +165,8 @@ class DatastoreManager:
 
             contents = property_list[str(i)]
 
-            self.log.debug(len(contents))
-
             if len(contents) is not 0:
-                key = client.key(kind_name, i)
+                key = client.key(kind_name, str(i))
                 entity = client.get(key)
 
                 # If entity for content already exist
@@ -192,10 +190,36 @@ class DatastoreManager:
         famous = obj['famous']
 
         client = datastore.Client()
+        diff_list = []
+        concert_list = []
+        famous_list = []
 
-        key = client.key(dbconsts.KIND_DIFFICULTY, difficulty)
-        entity = client.get(key)
+        output_list = []
 
-        # TODO
+        # key_diff = client.key(dbconsts.KIND_DIFFICULTY, str(difficulty))
+        key_diff = client.key(dbconsts.KIND_DIFFICULTY, str(difficulty))
+        entity_diff = client.get(key_diff)
+        if diff_list is not None:
+            diff_list = entity_diff[dbconsts.PROPERTY_CONTENTS_DATA]
 
-        return
+        key_concert = client.key(dbconsts.KIND_CONCERT, str(concert))
+        entity_concert = client.get(key_concert)
+        if entity_concert is not None:
+            concert_list = entity_concert[dbconsts.PROPERTY_CONTENTS_DATA]
+
+        key_famous = client.key(dbconsts.KIND_FAMOUSE, str(famous))
+        entity_famous = client.get(key_famous)
+        if entity_famous is not None:
+            famous_list = entity_famous[dbconsts.PROPERTY_CONTENTS_DATA]
+
+        for i in range(len(diff_list)):
+            # self.log.debug(diff_list[i]['video_id'])
+            for j in range(len(concert_list)):
+                for k in range(len(famous_list)):
+                    if diff_list[i] == concert_list[j] == famous_list[k]:
+                        self.log.debug('Same')
+                        processor = DatastoreProcessor()
+                        output_list.append(
+                            processor.convert_entity_to_mini_json(diff_list[i]))
+
+        return json.dumps(output_list)
