@@ -45,8 +45,8 @@ export class DashboardComponent implements OnInit {
           // );
 
       // TEMPORARY
-      this.apiService.savePropertyData()
-      .subscribe(param => console.log(param));
+      // this.apiService.savePropertyData()
+      // .subscribe(param => console.log(param));
 
   }
 
