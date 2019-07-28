@@ -23,8 +23,8 @@ export class ContentDataBuilder {
         return this;
     }
 
-    setThumbnailUri(thumbnail_uri: string): ContentDataBuilder{
-        this.content.setThumbnailUri(thumbnail_uri);
+    setThumbnailUrl(thumb_url: string): ContentDataBuilder{
+        this.content.setThumbnailUrl(thumb_url);
         return this;
     }
 

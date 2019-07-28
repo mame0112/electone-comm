@@ -26,7 +26,7 @@ export class DataProcessorService {
           for (var i=0; i<Object.keys(jsonobj.contents).length; i++){
 
               var content: ContentData = jsonobj.contents[i];
-              console.log(content.title);
+              console.log(content.thumb_url);
               contents.push(content);
            }
       }

@@ -47,11 +47,11 @@ def get_contents_by_property(properties):
     return dataManager.get_content_by_property(properties)
 
 
-@app.route('/youtube', methods=['GET'])
-def youtube():
+# @app.route('/youtube', methods=['GET'])
+# def youtube():
 
-    dataManager = DatastoreManager()
-    return dataManager.get_latest_data()
+#     dataManager = DatastoreManager()
+#     return dataManager.get_latest_data()
 
 
 @app.route('/youtube/<string:video_id>', methods=['GET'])
@@ -98,13 +98,14 @@ def get_recommend_contents():
     dataManager = DatastoreManager()
     return dataManager.get_recommend_contents()
 
-# @app.route('/youtube', methods=['GET'])
-# def search_youtube():
 
-#     crawler = YouTubeCrawler()
-#     crawler.crawel_youtube()
+@app.route('/youtube', methods=['GET'])
+def search_youtube():
 
-#     return render_template('/songs/song.html')
+    crawler = YouTubeCrawler()
+    crawler.crawel_youtube()
+
+    return render_template('/songs/song.html')
 
 if __name__ == "__main__":
     app.run(host='127.0.0.1:8000')

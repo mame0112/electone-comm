@@ -23,8 +23,8 @@ class YouTubeDataBuilder(AbstractBuilder):
         self.data.set_publish_date(publish_date)
         return self
 
-    def set_thumbnail_uri(self, thumbnail_uri):
-        self.data.set_thumbnail_uri(thumbnail_uri)
+    def set_thumbnail_url(self, thumb_url):
+        self.data.set_thumbnail_url(thumb_url)
         return self
 
     def set_channel_title(self, channel_title):

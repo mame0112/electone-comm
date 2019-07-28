@@ -16,7 +16,7 @@ class AbstractBuilder:
         pass
 
     @abstractmethod
-    def set_thumbnail_uri(self, thumbnail_uri):
+    def set_thumbnail_url(self, thumb_url):
         pass
 
     @abstractmethod

@@ -102,7 +102,7 @@ class DatastoreManager:
             entity[dbconsts.PROPERTY_TITLE] = content.get_title()
             entity[dbconsts.PROPERTY_DESCRIPTION] = content.get_description()
             entity[dbconsts.PROPERTY_PUBLISH_DATE] = content.get_publish_date()
-            entity[dbconsts.PROPERTY_THUMBNAIL_URI] = content.get_thumbnail_uri()
+            entity[dbconsts.PROPERTY_THUMBNAIL_URL] = content.get_thumbnail_url()
             entity[dbconsts.PROPERTY_CHANNEL_TITLE] = content.get_channel_title()
             entity[dbconsts.PROPERTY_VIDEO_ID] = content.get_video_id()
 

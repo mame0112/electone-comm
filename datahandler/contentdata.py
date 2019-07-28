@@ -16,8 +16,8 @@ class ContentData:
     def set_publish_date(self, publish_date):
         self.publish_date = publish_date
 
-    def set_thumbnail_uri(self, thumbnail_uri):
-        self.thumbnail_uri = thumbnail_uri
+    def set_thumbnail_url(self, thumb_url):
+        self.thumb_url = thumb_url
 
     def set_channel_title(self, channel_title):
         self.channel_title = channel_title
@@ -34,8 +34,8 @@ class ContentData:
     def get_publish_date(self):
         return self.publish_date
 
-    def get_thumbnail_uri(self):
-        return self.thumbnail_uri
+    def get_thumbnail_url(self):
+        return self.thumb_url
 
     def get_channel_title(self):
         return self.channel_title

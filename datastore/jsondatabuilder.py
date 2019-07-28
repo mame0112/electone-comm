@@ -25,8 +25,8 @@ class JsonDataBuilder(AbstractBuilder):
         self.data[const.FIELD_PUBLISH_DATE] = publish_date
         return self
 
-    def set_thumbnail_uri(self, thumbnail_uri):
-        self.data[const.FIELD_THUMBNAIL_URI] = thumbnail_uri
+    def set_thumbnail_url(self, thumbnail_url):
+        self.data[const.FIELD_THUMBNAIL_URL] = thumbnail_url
         return self
 
     def set_channel_title(self, channel_title):

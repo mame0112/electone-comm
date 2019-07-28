@@ -7,7 +7,7 @@ export class ContentData {
     title: string;
     description: string;
     publish_date: number;
-    thumbnail_uri: string;
+    thumb_url: string;
     channel_title: string;
     video_id: number;
 
@@ -24,8 +24,8 @@ export class ContentData {
         return this.publish_date;
     }
 
-    getThumbnailUri(): string{
-        return this.thumbnail_uri;
+    getThumbnailUrl(): string{
+        return this.thumb_url;
     }
 
     getChannelTitle(): string{
@@ -48,8 +48,8 @@ export class ContentData {
         this.publish_date = publish_date;
     }
 
-    setThumbnailUri(thumbnail_uri: string): void{
-        this.thumbnail_uri = thumbnail_uri;
+    setThumbnailUrl(thumb_url: string): void{
+        this.thumb_url = thumb_url;
     }
 
     setChannelTitle(channel_title: string): void{

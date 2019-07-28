@@ -41,7 +41,7 @@ class DataProcessorParser:
                 content = contents[j]
                 item_json['title'] = content.title
                 item_json['description'] = content.description
-                item_json['thumbnail_uri'] = content.thumbnail_uri
+                item_json['thumb_url'] = content.thumb_url
                 item_json['video_id'] = content.video_id
                 self.log.debug(content.title)
 

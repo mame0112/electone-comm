@@ -6,7 +6,7 @@ export class MiniContentData {
 
     title: string;
     description: string;
-    thumbnail_uri: string;
+    thumb_url: string;
     video_id: number;
 
 
@@ -19,7 +19,7 @@ export class MiniContentData {
     }
 
     getThumbnailUri(): string{
-        return this.thumbnail_uri;
+        return this.thumb_url;
     }
 
     getVideoId(): number{
@@ -34,8 +34,8 @@ export class MiniContentData {
         this.description = description;
     }
 
-    setThumbnailUri(thumbnail_uri: string): void{
-        this.thumbnail_uri = thumbnail_uri;
+    setThumbnailUri(thumb_url: string): void{
+        this.thumb_url = thumb_url;
     }
 
     setVideoId(video_id: number): void{

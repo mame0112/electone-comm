@@ -53,7 +53,7 @@ class YouTubeAccessor:
             builder = YouTubeDataBuilder()
 
             builder.set_title(item['snippet']['title']).set_description(
-                item['snippet']['description']).set_publish_date(item['snippet']['publishedAt']).set_thumbnail_uri(item['snippet']['thumbnails']['default']['url']).set_channel_title(item['snippet']['channelTitle']).set_video_id(item['id']['videoId'])
+                item['snippet']['description']).set_publish_date(item['snippet']['publishedAt']).set_thumbnail_url(item['snippet']['thumbnails']['default']['url']).set_channel_title(item['snippet']['channelTitle']).set_video_id(item['id']['videoId'])
 
             content_list.append(builder.get_result())
 
