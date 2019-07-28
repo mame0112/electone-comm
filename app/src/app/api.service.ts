@@ -72,7 +72,17 @@ export class ApiService {
         const url = `${Constants.props_url}/${properties}`;
         return this.http.get<string>(url)
         .pipe(
-            tap(props => console.log('searchContentByProperties')),
+            tap(props => console.log('searchContentByProperties fetched')),
+            catchError(this.handleError<string>('savePropertyData', 'Error'))
+            );
+    }
+
+    // Recommend
+    getRecommendContents(): Observable<string> {
+        console.log('getRecommendContents')
+        return this.http.get<string>(Constants.url_recommends)
+        .pipe(
+            tap(props => console.log('getRecommendContents fetched')),
             catchError(this.handleError<string>('savePropertyData', 'Error'))
             );
     }

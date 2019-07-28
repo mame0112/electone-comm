@@ -226,3 +226,27 @@ class DatastoreManager:
         jsonobj["contents"] = output_list
 
         return json.dumps(jsonobj)
+
+    def get_recommend_contents(self):
+        self.log.debug('get_recommend_contents')
+
+        # TODO
+        client = datastore.Client()
+        query = client.query(kind=dbconsts.KIND_SONG)
+        entities = list(query.fetch())
+
+        jsonobj = {"contents": []}
+        # latest_contents = {}
+
+        for entity in entities:
+
+            processor = DatastoreProcessor()
+            content = processor.convert_entity_to_json(entity)
+            # content = processor.convert_entity_to_contentdata(entity)
+            # self.log.debug(json.dumps(content))
+            # latest_contents.append(content)
+            jsonobj["contents"].append(content)
+
+            # self.log.debug(jsonobj)
+
+        return json.dumps(jsonobj)

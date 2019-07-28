@@ -92,6 +92,12 @@ def get_one_content(song_id):
     return render_template('/songs/song.html')
 
 
+@app.route('/recommends', methods=['GET'])
+def get_recommend_contents():
+
+    dataManager = DatastoreManager()
+    return dataManager.get_recommend_contents()
+
 # @app.route('/youtube', methods=['GET'])
 # def search_youtube():
 
