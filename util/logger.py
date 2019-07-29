@@ -1,5 +1,7 @@
 from logging import Formatter, handlers, StreamHandler, getLogger, DEBUG
 
+from const.const import Consts
+
 
 class Logger:
 
@@ -17,16 +19,16 @@ class Logger:
         self.logger.addHandler(handler)
 
         # file
-        handler = handlers.RotatingFileHandler(filename='your_log_path.log',
-                                               maxBytes=1048576,
-                                               backupCount=3)
+        if Consts.IS_DEBUG == True:
+            handler = handlers.RotatingFileHandler(filename='your_log_path.log',
+                                                   maxBytes=1048576,
+                                                   backupCount=3)
         handler.setLevel(DEBUG)
         handler.setFormatter(formatter)
         self.logger.addHandler(handler)
 
     def debug(self, msg):
         self.logger.debug(msg)
-        # pass
 
     def info(self, msg):
         self.logger.info(msg)

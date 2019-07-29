@@ -1,6 +1,9 @@
-FIELD_TITLE = "title"
-FIELD__DESCRIPTION = "description"
-FIELD_PUBLISH_DATE = "publish_date"
-FIELD_THUMBNAIL_URL = "thumb_url"
-FIELD_CHANNEL_TITLE = "channel_title"
-FIELD_VIDEO_ID = "video_id"
+class Consts:
+    IS_DEBUG = False
+
+    FIELD_TITLE = "title"
+    FIELD__DESCRIPTION = "description"
+    FIELD_PUBLISH_DATE = "publish_date"
+    FIELD_THUMBNAIL_URL = "thumb_url"
+    FIELD_CHANNEL_TITLE = "channel_title"
+    FIELD_VIDEO_ID = "video_id"
