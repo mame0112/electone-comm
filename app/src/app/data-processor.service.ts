@@ -37,6 +37,8 @@ export class DataProcessorService {
       console.log('parseJson2ContentData')      
       console.log(jsonobj)
 
+      
+
 
       return new ContentData()
 

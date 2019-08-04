@@ -7,6 +7,8 @@ from google.cloud import datastore
 from . import dbconsts
 from .dataprocessor import DatastoreProcessor
 
+from util.hashgenerator import HashGenerator
+
 import threading
 
 
@@ -111,13 +113,16 @@ class DatastoreManager:
 
         client = datastore.Client()
 
-        key = client.key(dbconsts.SONG.KIND_NAME, content.get_song_id())
+        hgenerateor = HashGenerator()
+        id_hash = hgenerateor.generate_hash(content.get_song_id())
+
+        key = client.key(dbconsts.SONG.KIND_NAME, id_hash)
 
         if self.is_new_content(key):
 
             entity = datastore.Entity(
                 key=key, exclude_from_indexes=(dbconsts.SONG.CONTENTS,))
-            entity[dbconsts.SONG.SONG_ID] = content.get_song_id()
+            entity[dbconsts.SONG.SONG_ID] = id_hash
             entity[dbconsts.SONG.REP_TITLE] = content.get_title()
             entity[dbconsts.SONG.REP_DESCRIPTION] = content.get_description()
             entity[dbconsts.SONG.REP_PUBLISH_DATE] = content.get_publish_date()
