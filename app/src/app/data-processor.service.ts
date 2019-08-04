@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 
 import { ContentData } from './contentdata';
+import { ContentDataBuilder } from './contentdata-builder';
+
 import { MiniContentData } from './minicontentdata';
 
 
@@ -33,19 +35,14 @@ export class DataProcessorService {
  
   }
 
-  parseJson2ContentData(jsonobj: any): ContentData {
+  parseJson2ContentData(jsonObj: any): ContentData {
       console.log('parseJson2ContentData')      
-      console.log(jsonobj)
+      console.log(jsonObj)
 
-      
+      var builder = new ContentDataBuilder();
+      builder.setSongId(jsonObj['song_id']).setTitle(jsonObj['title']).setDescription(jsonObj['description']).setPublishDate(jsonObj['publish_date']).setThumbnailUrl(jsonObj['thumb_url']).setChannelTitle(jsonObj['channel_title']).setVideoId(jsonObj['video_id']).setDifficulty(jsonObj['diff']).setConcert(jsonObj['concert']).setFamous(jsonObj['famous']);
 
-
-      return new ContentData()
-
-
-      // this.contentsData = jsonobj.contents;
-
-
+      return builder.getResult()
   }
 
 

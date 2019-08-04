@@ -76,8 +76,8 @@ class DatastoreManager:
 
         for entity in entities:
 
-            processor = DatastoreProcessor()
-            content = processor.convert_entity_to_json(entity)
+            self.processor = DatastoreProcessor()
+            content = self.processor.convert_entity_to_json(entity)
             # content = processor.convert_entity_to_contentdata(entity)
             # self.log.debug(json.dumps(content))
             # latest_contents.append(content)
@@ -95,8 +95,8 @@ class DatastoreManager:
         key = client.key(dbconsts.SONG.KIND_NAME, song_id)
         entity = client.get(key)
 
-        data_processor = DatastoreProcessor()
-        return data_processor.convert_entity_to_contentdata(entity)
+        self.data_processor = DatastoreProcessor()
+        return self.data_processor.convert_entity_to_contentdata(entity)
 
     def is_new_content(self, key):
 
@@ -143,8 +143,10 @@ class DatastoreManager:
         key = client.key(dbconsts.SONG.KIND_NAME, song_id)
         entity = client.get(key)
 
-        processor = DatastoreProcessor()
-        return processor.convert_entity_to_json(entity)
+        self.processor = DatastoreProcessor()
+
+        # self.log.debug(str(self.processor.convert_entity_to_json(entity)))
+        return json.dumps(self.processor.convert_entity_to_json(entity))
 
     # Difficulty
     def get_contents_by_difficulty(self, min, max):
@@ -240,9 +242,9 @@ class DatastoreManager:
                 for k in range(len(famous_list)):
                     if diff_list[i] == concert_list[j] == famous_list[k]:
                         self.log.debug('Same')
-                        processor = DatastoreProcessor()
+                        self.processor = DatastoreProcessor()
                         output_list.append(
-                            processor.convert_entity_to_mini_json(diff_list[i]))
+                            self.processor.convert_entity_to_mini_json(diff_list[i]))
 
         jsonobj["contents"] = output_list
 
@@ -261,8 +263,8 @@ class DatastoreManager:
 
         for entity in entities:
 
-            processor = DatastoreProcessor()
-            content = processor.convert_entity_to_json(entity)
+            self.processor = DatastoreProcessor()
+            content = self.processor.convert_entity_to_json(entity)
             # content = processor.convert_entity_to_contentdata(entity)
             # self.log.debug(json.dumps(content))
             # latest_contents.append(content)
