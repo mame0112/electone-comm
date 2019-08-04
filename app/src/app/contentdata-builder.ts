@@ -8,6 +8,12 @@ export class ContentDataBuilder {
         // Nothing to do
     }
 
+
+    setSongId(song_id: string): ContentDataBuilder{
+        this.content.setSongId(song_id);
+        return this;
+    }
+
     setTitle(title: string): ContentDataBuilder{
         this.content.setTitle(title);
         return this;
@@ -33,13 +39,28 @@ export class ContentDataBuilder {
         return this;
     }
 
-    setVideoId(video_id: number): ContentDataBuilder{
+    setVideoId(video_id: string): ContentDataBuilder{
         this.content.setVideoId(video_id);
         return this;
     }
 
     getResult(): ContentData {
         return this.content;
+    }
+
+    setDifficulty(difficulty: number): ContentDataBuilder{
+        this.content.setDifficulty(difficulty);
+        return this;
+    }
+
+    setFamous(famous: number): ContentDataBuilder{
+        this.content.setFamous(famous);
+        return this;
+    }
+
+    setConcert(concert: number): ContentDataBuilder{
+        this.content.setConcert(concert);
+        return this;
     }
 
 

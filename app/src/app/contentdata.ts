@@ -4,13 +4,21 @@ export class ContentData {
         // Nothing to do
     }
 
+
+    song_id: string;
     title: string;
     description: string;
     publish_date: number;
     thumb_url: string;
     channel_title: string;
-    video_id: number;
+    video_id: string;
+    difficulty: number;
+    famous: number;
+    concert: number;
 
+    get_song_id(): string{
+        return this.song_id;
+    }
 
     getTitle(): string{
         return this.title;
@@ -32,8 +40,24 @@ export class ContentData {
         return this.channel_title;
     }
 
-    getVideoId(): number{
+    getVideoId(): string{
         return this.video_id;
+    }
+
+    getDifficulty(): number{
+        return this.difficulty;
+    }
+
+    getFamous(): number{
+        return this.famous;
+    }
+
+    getConcert(): number{
+        return this.concert;
+    }
+
+    setSongId(song_id: string): void{
+        this.song_id = song_id;
     }
 
     setTitle(title: string): void{
@@ -56,8 +80,21 @@ export class ContentData {
         this.channel_title = channel_title;
     }
 
-    setVideoId(video_id: number): void{
+    setVideoId(video_id: string): void{
         this.video_id = video_id;
     }
+
+    setDifficulty(difficulty: number): void{
+        this.difficulty = difficulty;
+    }
+
+    setFamous(famous: number): void{
+        this.famous = famous;
+    }
+
+    setConcert(concert: number): void{
+        this.concert = concert;
+    }
+
 
 }

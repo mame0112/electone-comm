@@ -18,7 +18,7 @@ class MiniJsonDataBuilder(AbstractBuilder):
         return self
 
     def set_description(self, description):
-        self.data[const.FIELD__DESCRIPTION] = description
+        self.data[const.FIELD_DESCRIPTION] = description
         return self
 
     def set_thumbnail_uri(self, thumbnail_uri):

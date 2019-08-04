@@ -13,12 +13,16 @@ class JsonDataBuilder(AbstractBuilder):
         self.log.debug('Initialize')
         self.data = {}
 
+    def set_song_id(self, song_id):
+        self.data[Consts.FIELD_SONG_ID] = song_id
+        return self
+
     def set_title(self, title):
         self.data[Consts.FIELD_TITLE] = title
         return self
 
     def set_description(self, description):
-        self.data[Consts.FIELD__DESCRIPTION] = description
+        self.data[Consts.FIELD_DESCRIPTION] = description
         return self
 
     def set_publish_date(self, publish_date):
@@ -35,6 +39,18 @@ class JsonDataBuilder(AbstractBuilder):
 
     def set_video_id(self, video_id):
         self.data[Consts.FIELD_VIDEO_ID] = video_id
+        return self
+
+    def set_difficulty(self, song_id):
+        self.data[Consts.FIELD_DIFFICULTY] = song_id
+        return self
+
+    def set_famous(self, famous):
+        self.data[Consts.FIELD_FAMOUS] = famous
+        return self
+
+    def set_concert(self, concert):
+        self.data[Consts.FIELD_CONCERT] = concert
         return self
 
     def get_result(self):

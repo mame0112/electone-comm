@@ -117,6 +117,7 @@ class DatastoreManager:
 
             entity = datastore.Entity(
                 key=key, exclude_from_indexes=(dbconsts.SONG.CONTENTS,))
+            entity[dbconsts.SONG.SONG_ID] = content.get_song_id()
             entity[dbconsts.SONG.REP_TITLE] = content.get_title()
             entity[dbconsts.SONG.REP_DESCRIPTION] = content.get_description()
             entity[dbconsts.SONG.REP_PUBLISH_DATE] = content.get_publish_date()

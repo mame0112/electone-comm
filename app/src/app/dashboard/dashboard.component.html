@@ -4,10 +4,11 @@
     </h2>
     <div class="card-columns">
         <a *ngFor="let content of contents" class="col-6 col-md-4"
-        routerLink="/song/{{content.video_id}}">
+        routerLink="/song/{{content.song_id}}">
             <div class="card">
                 <img [src]="content.thumb_url" class="card-img-top" alt="...">
                 <h5 class="card-title">{{content.title}}</h5>
+                <!-- <p class="card-text">{{content.difficulty}}</p> -->
                 <p class="card-text">{{content.description}}</p>
             </div>
         </a>

@@ -10,6 +10,10 @@ class ContentDataBuilder(AbstractBuilder):
         self.log.debug('Initialize')
         self.data = ContentData()
 
+    def set_song_id(self, song_id):
+        self.data[Consts.FIELD_SONG_ID] = song_id
+        return self
+
     def set_title(self, title):
         self.data.set_title(title)
         return self
@@ -32,6 +36,18 @@ class ContentDataBuilder(AbstractBuilder):
 
     def set_video_id(self, video_id):
         self.data.set_video_id(video_id)
+        return self
+
+    def set_difficulty(self, song_id):
+        self.data[Consts.FIELD_DIFFICULTY] = song_id
+        return self
+
+    def set_famous(self, famous):
+        self.data[Consts.FIELD_FAMOUS] = famous
+        return self
+
+    def set_concert(self, concert):
+        self.data[Consts.FIELD_CONCERT] = concert
         return self
 
     def get_result(self):

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { ContentData } from './contentdata';
 import { MiniContentData } from './minicontentdata';
-import { ContentDataBuilder } from './contentdata-builder';
+
 
 @Injectable({
   providedIn: 'root'
