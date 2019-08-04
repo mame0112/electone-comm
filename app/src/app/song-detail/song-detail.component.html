@@ -2,14 +2,14 @@
   song-detail works!
 </p>
 
-<div>
-<!--     {{content.title}}
+<div *ngIf="content">
+    {{content.title}}
     {{content.description}}
     {{content.difficulty}} / {{content.concert}} / {{content.famous}}
- -->    <div class="grid grid-pad">
+<!--     <div class="grid grid-pad">
         <a *ngFor="let content of contents" class="col-1-4"
         routerLink="/song/{{content.video_id}}">
         {{content.title}}
         </a>
-    </div>
+    </div> -->
 </div>

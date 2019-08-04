@@ -32,7 +32,6 @@ export class SongDetailComponent implements OnInit {
         console.log("getSong");
 
         const id = this.route.snapshot.paramMap.get('song_id');
-        console.log(id);
 
         this.apiService.getSongContents(id).subscribe(param => {
               this.content = this.dataProcessorService.parseJson2ContentData(param)}
