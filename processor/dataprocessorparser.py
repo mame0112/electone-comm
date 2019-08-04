@@ -74,6 +74,4 @@ class DataProcessorParser:
 
             jsonobj["contents"].append(item_json)
 
-        self.log.debug(jsonobj)
-
         return json.dumps(jsonobj)
