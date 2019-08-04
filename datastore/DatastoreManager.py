@@ -27,7 +27,7 @@ class DatastoreManager:
         with cls._lock:
             if cls._instance is None:
                 cls._instance = super().__new__(cls)
-                return cls._instance
+            return cls._instance
 
     def generate_song_id(self, arg):
         self.log.debug('generate_song_id')
@@ -132,11 +132,14 @@ class DatastoreManager:
 
             client.put(entity)
 
-    def get_category_contents(self, video_id):
-        self.log.debug('get_category_contents')
+    def get_song_contents(self, song_id):
+        self.log.debug('get_song_contents')
         client = datastore.Client()
-        key = client.key(dbconsts.SONG.KIND_NAME, video_id)
+        key = client.key(dbconsts.SONG.KIND_NAME, song_id)
         entity = client.get(key)
+
+        processor = DatastoreProcessor()
+        return processor.convert_entity_to_json(entity)
 
     # Difficulty
     def get_contents_by_difficulty(self, min, max):

@@ -3,7 +3,10 @@
 </p>
 
 <div>
-    <div class="grid grid-pad">
+<!--     {{content.title}}
+    {{content.description}}
+    {{content.difficulty}} / {{content.concert}} / {{content.famous}}
+ -->    <div class="grid grid-pad">
         <a *ngFor="let content of contents" class="col-1-4"
         routerLink="/song/{{content.video_id}}">
         {{content.title}}

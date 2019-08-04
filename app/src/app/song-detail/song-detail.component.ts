@@ -15,7 +15,7 @@ import { DataProcessorService } from '../data-processor.service';
 })
 export class SongDetailComponent implements OnInit {
 
-    contents: ContentData[];
+    content: ContentData;
 
     constructor(
         private route: ActivatedRoute,
@@ -31,11 +31,11 @@ export class SongDetailComponent implements OnInit {
     getSong(): void {
         console.log("getSong");
 
-        const id = this.route.snapshot.paramMap.get('video_id');
+        const id = this.route.snapshot.paramMap.get('song_id');
         console.log(id);
 
-        this.apiService.getCategoryContents(id).subscribe(param => {
-              this.contents = this.dataProcessorService.parseJson2ContentsData(param)}
+        this.apiService.getSongContents(id).subscribe(param => {
+              this.content = this.dataProcessorService.parseJson2ContentData(param)}
           );
 
     }

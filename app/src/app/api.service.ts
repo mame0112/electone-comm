@@ -49,12 +49,12 @@ export class ApiService {
 
     }
 
-    getCategoryContents(category_id: string): Observable<string> {
-        const url = `${Constants.url_contents}/${category_id}`;
+    getSongContents(song_id: string): Observable<string> {
+        const url = `${Constants.url_contents}/${song_id}`;
         return this.http.get<string>(url)
         .pipe(
-            tap(heroes => console.log('getCategoryContents')),
-            catchError(this.handleError<string>('getCategoryContents', 'Error'))
+            tap(heroes => console.log('getSongContents')),
+            catchError(this.handleError<string>('getSongContents', 'Error'))
             );
 
     }

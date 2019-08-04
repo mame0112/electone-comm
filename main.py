@@ -54,11 +54,11 @@ def get_contents_by_property(properties):
 #     return dataManager.get_latest_data()
 
 
-@app.route('/contents/<string:video_id>', methods=['GET'])
-def get_category_contents():
+@app.route('/contents/<string:song_id>', methods=['GET'])
+def get_category_contents(song_id):
 
     dataManager = DatastoreManager()
-    return dataManager.get_category_contents()
+    return dataManager.get_song_contents(song_id)
 
 
 @app.route('/showname')

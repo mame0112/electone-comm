@@ -15,8 +15,6 @@ export class DataProcessorService {
 
   parseJson2ContentsData(jsonobj: any): ContentData[] {
       console.log('parseJson2ContentsData')
-      console.log(jsonobj)
-      console.log(jsonobj.contents)
 
       var contents: ContentData[] = [];
 
@@ -34,6 +32,20 @@ export class DataProcessorService {
        return contents;
  
   }
+
+  parseJson2ContentData(jsonobj: any): ContentData {
+      console.log('parseJson2ContentData')      
+      console.log(jsonobj)
+
+
+      return new ContentData()
+
+
+      // this.contentsData = jsonobj.contents;
+
+
+  }
+
 
   parseJson2MiniContentsData(jsonobj: any): MiniContentData[] {
       console.log('parseJson2MiniContentsData')
