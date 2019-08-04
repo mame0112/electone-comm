@@ -1,6 +1,3 @@
-# from google.appengine.ext import webapp
-# from google.appengine.ext.webapp.util import run_wsgi_app
-
 from flask import Flask, render_template, request
 # from google.appengine.ext import ndb
 from google.cloud import datastore
@@ -9,7 +6,7 @@ from datastore.DatastoreManager import DatastoreManager
 from processor.propertydatamgr import PropertyDataManager
 # from youtube.ytaccessor import YouTubeAccessor
 
-from crawler.ytcrawler import YouTubeCrawler
+from crawler.crawler import Crawler
 
 from util.logger import Logger
 
@@ -57,11 +54,11 @@ def get_contents_by_property(properties):
 #     return dataManager.get_latest_data()
 
 
-@app.route('/youtube/<string:video_id>', methods=['GET'])
-def get_category_content():
+@app.route('/contents/<string:video_id>', methods=['GET'])
+def get_category_contents():
 
     dataManager = DatastoreManager()
-    return dataManager.get_latest_data()
+    return dataManager.get_category_contents()
 
 
 @app.route('/showname')
@@ -105,26 +102,12 @@ def get_recommend_contents():
 @app.route('/youtube', methods=['GET'])
 def search_youtube():
 
-    crawler = YouTubeCrawler()
-    crawler.crawel_youtube()
+    crawler = Crawler()
+    crawler.crawel()
 
     return render_template('/songs/song.html')
 
-
-# class NotFoundPageHandler(webapp.RequestHandler):
-
-#     def get(self):
-#         self.error(404)
-#         self.response.out.write('<Your 404 error html page>')
-
-# application = webapp.WSGIApplication(
-#     [('/.*', NotFoundPageHandler)], debug=True)
-
-
-# def main():
-#     run_wsgi_app(application)
-
 if __name__ == "__main__":
     # main()
-    # app.run(host='127.0.0.1:8000')
-    app.run()
+    app.run(host='127.0.0.1:8000')
+    # app.run()

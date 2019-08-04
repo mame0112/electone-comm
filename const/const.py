@@ -1,5 +1,6 @@
 class Consts:
-    IS_DEBUG = False
+    # IS_DEBUG = False
+    IS_DEBUG = True
 
     FIELD_TITLE = "title"
     FIELD__DESCRIPTION = "description"

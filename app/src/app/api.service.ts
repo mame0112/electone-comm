@@ -41,7 +41,7 @@ export class ApiService {
     // }
 
     getYoutubeData(): Observable<string> {
-        return this.http.get<string>(Constants.url)
+        return this.http.get<string>(Constants.url_contents)
         .pipe(
             tap(heroes => console.log('fetched heroes')),
             catchError(this.handleError<string>('getYoutubeData', 'Error'))
@@ -50,8 +50,8 @@ export class ApiService {
     }
 
     getCategoryContents(category_id: string): Observable<string> {
-        const url = `${Constants.url}/${category_id}`;
-        return this.http.get<string>(Constants.url)
+        const url = `${Constants.url_contents}/${category_id}`;
+        return this.http.get<string>(url)
         .pipe(
             tap(heroes => console.log('getCategoryContents')),
             catchError(this.handleError<string>('getCategoryContents', 'Error'))

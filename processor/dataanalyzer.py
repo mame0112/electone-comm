@@ -13,13 +13,15 @@ class DataAnalyzer:
 
     def __init__(self):
         self.log.debug('Initialize')
-        self.propertyData = ContentPropertyData()
 
-    def analyze_content(self, content):
+    def analyze_content(self, content_list):
         self.log.debug('analyze_content')
 
-        self.propertyData.difficulty = DifficultyAnalyzer().analyze(content)
-        self.propertyData.concert = ConcertAnalyzer().analyze(content)
-        self.propertyData.famous = FamousAnalyzer().analyze(content)
+        propertyData = ContentPropertyData()
 
-        return self.propertyData
+        # TODO Need to send all content_list (Not only 1)
+        propertyData.difficulty = DifficultyAnalyzer().analyze(content_list[0])
+        propertyData.concert = ConcertAnalyzer().analyze(content_list[0])
+        propertyData.famous = FamousAnalyzer().analyze(content_list[0])
+
+        return propertyData

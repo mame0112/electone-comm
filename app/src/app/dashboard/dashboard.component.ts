@@ -35,8 +35,10 @@ export class DashboardComponent implements OnInit {
       //     });
 
 
-      this.apiService.getRecommendContents()
-      .subscribe(params => this.contents = this.dataProcessorServie.parseJson2ContentsData(params));
+      // this.apiService.getRecommendContents()
+      // .subscribe(params => this.contents = this.dataProcessorServie.parseJson2ContentsData(params));
+
+
       // TODO
       // this.apiService.getYoutubeData()
       // .subscribe(param => {

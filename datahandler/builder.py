@@ -28,5 +28,21 @@ class AbstractBuilder:
         pass
 
     @abstractmethod
+    def set_difficulty(self, difficulty):
+        pass
+
+    @abstractmethod
+    def set_concert(self, concert):
+        pass
+
+    @abstractmethod
+    def set_famous(self, famous):
+        pass
+
+    @abstractmethod
+    def set_content(self, contentJson):
+        pass
+
+    @abstractmethod
     def get_result(self):
         pass

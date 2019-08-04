@@ -41,7 +41,8 @@ class YouTubeAccessor:
         # query term.
         search_response = youtube.search().list(
             part='id, snippet',
-            q='Electone',
+            # q='Electone',
+            q='エレクトーン　君をのせて',
             type='Video'
         ).execute()
 
@@ -56,5 +57,6 @@ class YouTubeAccessor:
                 item['snippet']['description']).set_publish_date(item['snippet']['publishedAt']).set_thumbnail_url(item['snippet']['thumbnails']['default']['url']).set_channel_title(item['snippet']['channelTitle']).set_video_id(item['id']['videoId'])
 
             content_list.append(builder.get_result())
+            self.log.debug(item['snippet']['title'])
 
         return content_list

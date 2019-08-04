@@ -16,14 +16,9 @@ class PropertyDataManager:
     def __init__(self):
         self.log.debug('Initialize')
 
-    def save_property_data(self):
-        self.log.debug('save_property_data')
+    def analyze_properties(self, content_list):
 
-        # TODO Need to check which youtube data should be extracted
-
-        # Get YouTube Data
-        ytaccessor = YouTubeAccessor()
-        content_list = ytaccessor.searcH_youtube()
+        self.log.debug('analyze_properties')
 
         difficulty_list = []
         concert_list = []
@@ -76,6 +71,19 @@ class PropertyDataManager:
 
         jsonObj = parser.parsePropertyListToJson(
             difficulty_list, concert_list, famous_list)
+
+        return jsonObj
+
+    def save_property_data(self):
+        self.log.debug('save_property_data')
+
+        # TODO Need to check which youtube data should be extracted
+
+        # Get YouTube Data
+        ytaccessor = YouTubeAccessor()
+        content_list = ytaccessor.searcH_youtube()
+
+        jsonObj = self.analyze_properties(content_list)
 
         # Save the Json object to server
         dataManager = DatastoreManager()
