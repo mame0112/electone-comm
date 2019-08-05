@@ -63,5 +63,10 @@ export class ContentDataBuilder {
         return this;
     }
 
+    setContents(contents: string): ContentDataBuilder{
+        this.content.setContents(contents);
+        return this;
+    }
+
 
 }

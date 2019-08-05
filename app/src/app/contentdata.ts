@@ -15,6 +15,7 @@ export class ContentData {
     difficulty: number;
     famous: number;
     concert: number;
+    contents: string;
 
     get_song_id(): string{
         return this.song_id;
@@ -94,6 +95,10 @@ export class ContentData {
 
     setConcert(concert: number): void{
         this.concert = concert;
+    }
+
+    setContents(contents: string): void{
+        this.contents = contents;
     }
 
 

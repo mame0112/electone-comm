@@ -40,7 +40,7 @@ export class DataProcessorService {
       console.log(jsonObj)
 
       var builder = new ContentDataBuilder();
-      builder.setSongId(jsonObj['song_id']).setTitle(jsonObj['title']).setDescription(jsonObj['description']).setPublishDate(jsonObj['publish_date']).setThumbnailUrl(jsonObj['thumb_url']).setChannelTitle(jsonObj['channel_title']).setVideoId(jsonObj['video_id']).setDifficulty(jsonObj['diff']).setConcert(jsonObj['concert']).setFamous(jsonObj['famous']);
+      builder.setSongId(jsonObj['song_id']).setTitle(jsonObj['title']).setDescription(jsonObj['description']).setPublishDate(jsonObj['publish_date']).setThumbnailUrl(jsonObj['thumb_url']).setChannelTitle(jsonObj['channel_title']).setVideoId(jsonObj['video_id']).setDifficulty(jsonObj['diff']).setConcert(jsonObj['concert']).setFamous(jsonObj['famous']).setContents(jsonObj['contents']);
 
       return builder.getResult()
   }

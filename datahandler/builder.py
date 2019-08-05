@@ -40,7 +40,7 @@ class AbstractBuilder:
         pass
 
     @abstractmethod
-    def set_content(self, contentJson):
+    def set_contents(self, contents):
         pass
 
     @abstractmethod

@@ -32,7 +32,7 @@ class DatastoreProcessor():
 
         self.builder = JsonDataBuilder()
         self.builder.set_song_id(entity[dbconsts.SONG.SONG_ID]).set_title(entity[dbconsts.SONG.REP_TITLE]).set_description(entity[dbconsts.SONG.REP_DESCRIPTION]).set_publish_date(entity[dbconsts.SONG.REP_PUBLISH_DATE]).set_thumbnail_url(
-            entity[dbconsts.SONG.REP_THUMB_URL]).set_channel_title(entity[dbconsts.SONG.REP_CHANNEL_TITLE]).set_video_id(entity[dbconsts.SONG.REP_VIDEO_ID]).set_difficulty(entity[dbconsts.SONG.DIFFICULTY]).set_famous(entity[dbconsts.SONG.FAMOUS]).set_concert(entity[dbconsts.SONG.CONCERT])
+            entity[dbconsts.SONG.REP_THUMB_URL]).set_channel_title(entity[dbconsts.SONG.REP_CHANNEL_TITLE]).set_video_id(entity[dbconsts.SONG.REP_VIDEO_ID]).set_difficulty(entity[dbconsts.SONG.DIFFICULTY]).set_famous(entity[dbconsts.SONG.FAMOUS]).set_concert(entity[dbconsts.SONG.CONCERT]).set_contents(entity[dbconsts.SONG.CONTENTS])
 
         return self.builder.get_result()
 

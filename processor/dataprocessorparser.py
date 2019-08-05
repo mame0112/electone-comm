@@ -58,6 +58,7 @@ class DataProcessorParser:
         self.log.debug('create_mini_content_json_array')
 
         jsonobj = {"contents": []}
+        jsonArray = []
 
         for content in content_list:
             item_json = {}
@@ -72,6 +73,12 @@ class DataProcessorParser:
                 dbconsts.SONG.CONTENTS_CHANNEL_TITLE] = content.get_channel_title()
             item_json[dbconsts.SONG.CONTENTS_VIDEO_ID] = content.get_video_id()
 
-            jsonobj["contents"].append(item_json)
+            # jsonobj["contents"].append(item_json)
+            # jsonobj["contents"].append(item_json)
+            jsonArray.append(item_json)
 
-        return json.dumps(jsonobj)
+        # self.log.debug(str(jsonobj))
+        # self.log.debug(json.dumps(jsonobj))
+
+        return str(jsonArray)
+        # return str(jsonobj)

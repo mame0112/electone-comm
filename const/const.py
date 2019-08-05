@@ -13,3 +13,4 @@ class Consts:
     FIELD_DIFFICULTY = "diff"
     FIELD_FAMOUS = "famous"
     FIELD_CONCERT = "concert"
+    FIELD_CONTENTS = "contents"

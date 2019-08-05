@@ -53,5 +53,8 @@ class JsonDataBuilder(AbstractBuilder):
         self.data[Consts.FIELD_CONCERT] = concert
         return self
 
+    def set_contents(self, contents):
+        self.data[Consts.FIELD_CONTENTS] = contents
+
     def get_result(self):
         return self.data
