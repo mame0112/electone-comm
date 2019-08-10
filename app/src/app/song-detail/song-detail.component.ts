@@ -9,6 +9,8 @@ import { MiniContentData } from '../minicontentdata';
 import { ApiService } from '../api.service';
 import { DataProcessorService } from '../data-processor.service';
 
+import { Constants } from '../constants';
+
 @Component({
   selector: 'app-song-detail',
   templateUrl: './song-detail.component.html',
@@ -45,6 +47,13 @@ export class SongDetailComponent implements OnInit {
 
     goBack(): void {
         this.location.back();
+    }
+
+    simplifyTimeformat(time: string): string {
+      if (time != null){
+        return time.substr(0, Constants.TIME_FORMAT_LENGTH);
+      }
+
     }
 
 }
