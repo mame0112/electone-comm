@@ -1,3 +1,5 @@
+import { MiniContentData } from './minicontentdata';
+
 export class ContentData {
 
     constructor(){
@@ -15,7 +17,7 @@ export class ContentData {
     difficulty: number;
     famous: number;
     concert: number;
-    contents: string;
+    contents: MiniContentData[];
 
     get_song_id(): string{
         return this.song_id;
@@ -97,7 +99,7 @@ export class ContentData {
         this.concert = concert;
     }
 
-    setContents(contents: string): void{
+    setContents(contents: MiniContentData[]): void{
         this.contents = contents;
     }
 

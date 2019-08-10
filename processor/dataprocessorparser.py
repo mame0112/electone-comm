@@ -80,5 +80,6 @@ class DataProcessorParser:
         # self.log.debug(str(jsonobj))
         # self.log.debug(json.dumps(jsonobj))
 
-        return str(jsonArray)
+        return json.dumps(jsonArray, ensure_ascii=False)
+        # return str(jsonArray)
         # return str(jsonobj)

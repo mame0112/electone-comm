@@ -7,13 +7,20 @@
     {{item.description}}
     {{item.difficulty}} / {{item.concert}} / {{item.famous}}
     <!-- <img [src]="item.thumb_url" class="card-img-top" alt="..."> -->
-    {{item}}
-    {{item.contents}}
-    {{item.contents.title}}
-    AAA
-<!--     <div class="grid grid-pad">
-        <a *ngFor="let subitem of item.contents" class="col-1-4">
-        {{subitem.title}}
-        </a>
-    </div> -->
+<!--     {{item.contents}}
+    {{item.contents.title}} -->
+
+    <div *ngIf="subItems">
+        <div class="grid grid-pad">
+            <a *ngFor="let subItem of subItems" class="col-1-4">
+            <div>
+            <img [src]="subItem.thumb_url" class="card-img-top" alt="...">
+            {{subItem.title}}
+            {{subItem.description}}
+            {{subItem.publish_date}}
+            {{subItem.channel_title}}
+            </div>
+            </a>
+        </div>
+    </div>
 </div>

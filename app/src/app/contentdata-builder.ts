@@ -1,4 +1,5 @@
 import { ContentData } from './contentdata';
+import { MiniContentData } from './minicontentdata';
 
 export class ContentDataBuilder {
 
@@ -63,7 +64,7 @@ export class ContentDataBuilder {
         return this;
     }
 
-    setContents(contents: string): ContentDataBuilder{
+    setContents(contents: MiniContentData[]): ContentDataBuilder{
         this.content.setContents(contents);
         return this;
     }

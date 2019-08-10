@@ -133,6 +133,22 @@ class DatastoreManager:
             entity[dbconsts.SONG.DIFFICULTY] = content.get_difficulty()
             entity[dbconsts.SONG.FAMOUS] = content.get_famous()
             entity[dbconsts.SONG.CONCERT] = content.get_concert()
+
+            # entity[dbconsts.SONG.CONTENTS] = content.get_mini_content()
+
+            jsonObj = []
+            # jsonObj = {"contents": []}
+            self.log.debug(content.get_mini_content())
+            # jsonObj["contents"].append(content.get_mini_content())
+            jsonObj.append(content.get_mini_content())
+
+            self.log.debug(jsonObj)
+            self.log.debug(str(jsonObj))
+            self.log.debug(json.dumps(jsonObj, ensure_ascii=False))
+
+            # entity[dbconsts.SONG.CONTENTS] = str(jsonObj)
+            # entity[dbconsts.SONG.CONTENTS] = json.dumps(
+            #     jsonObj, ensure_ascii=False)
             entity[dbconsts.SONG.CONTENTS] = content.get_mini_content()
 
             client.put(entity)
