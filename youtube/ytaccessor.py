@@ -42,7 +42,7 @@ class YouTubeAccessor:
         search_response = youtube.search().list(
             part='id, snippet',
             # q='Electone',
-            q='エレクトーン　君をのせて',
+            q='エレクトーン　Spin kick',
             type='Video'
         ).execute()
 
