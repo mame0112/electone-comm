@@ -73,8 +73,6 @@ export class DataProcessorService {
 
       var contents: MiniContentData[] = [];
 
-      // this.contentsData = jsonobj.contents;
-
       if(jsonobj.contents !== undefined) {
           for (var i=0; i<Object.keys(jsonobj.contents).length; i++){
 
