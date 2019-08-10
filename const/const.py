@@ -1,6 +1,6 @@
 class Consts:
-    # IS_DEBUG = False
-    IS_DEBUG = True
+    IS_DEBUG = False
+    # IS_DEBUG = True
 
     FIELD_SONG_ID = "song_id"
     FIELD_TITLE = "title"

@@ -109,5 +109,5 @@ def search_youtube():
 
 if __name__ == "__main__":
     # main()
-    app.run(host='127.0.0.1:8000')
-    # app.run()
+    # app.run(host='127.0.0.1:8000')
+    app.run()

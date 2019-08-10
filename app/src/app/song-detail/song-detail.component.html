@@ -1,26 +1,28 @@
-<p>
-  song-detail works!
-</p>
-
 <div *ngIf="item">
-    {{item.title}}
-    {{item.description}}
-    {{item.difficulty}} / {{item.concert}} / {{item.famous}}
-    <!-- <img [src]="item.thumb_url" class="card-img-top" alt="..."> -->
-<!--     {{item.contents}}
-    {{item.contents.title}} -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+        <h1 class="display-4">{{item.title}}</h1>
+        <p class="lead">{{item.description}}</p>
+        <p class="lead">{{item.difficulty}} / {{item.concert}} / {{item.famous}}</p>
+        </div>
+    </div>
 
     <div *ngIf="subItems">
-        <div class="grid grid-pad">
-            <a *ngFor="let subItem of subItems" class="col-1-4">
-            <div>
-            <img [src]="subItem.thumb_url" class="card-img-top" alt="...">
-            {{subItem.title}}
-            {{subItem.description}}
-            {{subItem.publish_date}}
-            {{subItem.channel_title}}
+        <div *ngFor="let subItem of subItems">
+            <div class="card mb-3" style="max-width: 720px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img [src]="subItem.thumb_url" class="card-img-top" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{subItem.title}}</h5>
+                              <p class="card-text">{{subItem.description}}</p>
+                              <p class="card-text"><small class="text-muted">{{subItem.channel_title}} / {{subItem.publish_date}}</small></p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            </a>
         </div>
     </div>
 </div>

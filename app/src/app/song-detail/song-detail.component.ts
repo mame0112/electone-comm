@@ -38,31 +38,10 @@ export class SongDetailComponent implements OnInit {
         this.apiService.getSongContents(id).subscribe(param => {
               this.item = this.dataProcessorService.parseJson2ContentData(param);
               this.subItems = this.item.contents;
-              // console.log("item");
-              // console.log(this.item.title);
-              // console.log(this.item.contents[0].title);
-              // console.log(this.item.contents);
-              // this.subItems = JSON.parse(this.item.contents);
-              // this.createSubItemContents(JSON.parse(this.item.contents));
+
             }
           );
-
     }
-
-
-    // createSubItemContents(jsonArray: any): void{
-    //   console.log("createSubItemContents");
-
-    //   for(let i in jsonArray){
-    //     console.log(jsonArray[i]);
-    //     var item = jsonArray[i];
-
-    //     // this.subItems[i] = builder.getResult();
-    //     this.subItems.push(builder.getResult());
-    //   }
-
-    //  }
-
 
     goBack(): void {
         this.location.back();
