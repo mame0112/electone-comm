@@ -107,6 +107,16 @@ def search_youtube():
 
     return render_template('/songs/song.html')
 
+
+@app.route('/crawl', methods=['GET'])
+def crawl():
+
+    crawler = Crawler()
+    crawler.crawel()
+
+    return render_template('/songs/song.html')
+
+
 if __name__ == "__main__":
     # main()
     # app.run(host='127.0.0.1:8000')

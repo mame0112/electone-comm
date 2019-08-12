@@ -4,8 +4,24 @@
         <h1 class="display-4">{{item.title}}</h1>
         <p class="lead">{{item.description}}</p>
         <p class="lead">{{item.difficulty}} / {{item.concert}} / {{item.famous}}</p>
+        <ul class="list-group list-group-horizontal">
+            <li class="list-group-item">難易度</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+        </ul>
+        <ul class="list-group list-group-horizontal">
+            <li class="list-group-item">コンサート向き度</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+        </ul>
+        <ul class="list-group list-group-horizontal">
+            <li class="list-group-item">有名度</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+        </ul>
         </div>
     </div>
+
+<!--     <img src="../../assets/full-star.png">
+    <img src="/../../assets/half-star.png">
+    <img src="../../assets/zero-star.png"> -->
 
     <div *ngIf="subItems">
         <div *ngFor="let subItem of subItems">

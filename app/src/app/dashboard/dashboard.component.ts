@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { ContentData } from '../contentdata';
 
 import { ApiService } from '../api.service';
-import { DataProcessorService } from '../data-processor.service'
+import { DataProcessorService } from '../data-processor.service';
+
+import { GaService } from '../ga.service';
 
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap' ; 
@@ -19,20 +21,13 @@ export class DashboardComponent implements OnInit {
 
   constructor(
       private apiService: ApiService,
-      private dataProcessorServie: DataProcessorService) {}
+      private dataProcessorServie: DataProcessorService,
+      private gaService: GaService) {}
 
   ngOnInit() {
       console.log('Dashboard onInit');
-      // this.apiService.getYoutubeData().subscribe(contents => this.contents = contents);
-      // this.apiService.getYoutubeData().subscribe(contents => this.contents = contents);
-      // this.apiService.getYoutubeData()
-      // .subscribe(
-      //     function(contents) {
-      //         console.log('contents fetched');
-      //         // console.log(contents);
-      //         this.contents = contents
-      //         this.dataProcessorServie.parseJson2ContentData(contents);
-      //     });
+
+      this.gaService.sendPageView("dashboard");
 
 
       this.apiService.getRecommendContents()
