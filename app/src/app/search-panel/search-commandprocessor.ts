@@ -6,18 +6,21 @@ import { OnInit } from '@angular/core';
 // }
 
 enum Difficulties  {
+    Unspecified = '指定なし',
     Easy = 'やさしい',
     Normal = 'ふつう',
     Hard = 'むずかしい'
 }
 
 enum Famous {
+    Unspecified = '指定なし',
     Unfamous = 'マニアック',
     Normal = 'ふつう',
     Famous = '有名'
 }
 
 enum Concert {
+    Unspecified = '指定なし',
     Soso = '一人で楽しめる',
     Normal = 'ふつう',
     Best = 'コンサート向き'
@@ -27,18 +30,18 @@ class SearchPropertyProcessor {
 
 
     difficulty_value = {
-        'min': 0,
-        'max': 0
+        'min': 1,
+        'max': 10
     }
 
     concert_value = {
-        'min': 0,
-        'max': 0
+        'min': 1,
+        'max': 10
     }
 
     famous_value = {
-        'min': 0,
-        'max': 0
+        'min': 1,
+        'max': 10
     }
 
 
@@ -54,7 +57,6 @@ class SearchPropertyProcessor {
     transcodeDifficiultyRankToValue(difficulty: Difficulties): any{
 
         console.log('transcodeDifficiultyRankToValue');
-        console.log(difficulty);
 
         switch(difficulty){
             case Difficulties.Easy:
@@ -67,6 +69,10 @@ class SearchPropertyProcessor {
                 return this.difficulty_value;
             case Difficulties.Hard:
                 this.difficulty_value['min'] = 8;
+                this.difficulty_value['max'] = 10;
+                return this.difficulty_value;
+            case Difficulties.Unspecified:
+                this.difficulty_value['min'] = 1;
                 this.difficulty_value['max'] = 10;
                 return this.difficulty_value;
         }
@@ -88,6 +94,10 @@ class SearchPropertyProcessor {
                 this.concert_value['min'] = 8;
                 this.concert_value['max'] = 10;
                 return this.concert_value;
+            case Concert.Unspecified:
+                this.concert_value['min'] = 1;
+                this.concert_value['max'] = 10;
+                return this.concert_value;
         }
     }
 
@@ -105,6 +115,10 @@ class SearchPropertyProcessor {
                 return this.famous_value;
             case Famous.Famous:
                 this.famous_value['min'] = 8;
+                this.famous_value['max'] = 10;
+                return this.famous_value;
+            case Famous.Unspecified:
+                this.famous_value['min'] = 1;
                 this.famous_value['max'] = 10;
                 return this.famous_value;
         }
