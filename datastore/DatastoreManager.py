@@ -179,6 +179,10 @@ class DatastoreManager:
 
         return
 
+    def get_contents_with_properties(self, property_range_json):
+        self.log.debug('get_contents_with_properties')
+        return
+
     def put_contents_with_property(self, jsonObj):
         self.log.debug('put_contents_with_property')
 

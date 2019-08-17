@@ -44,3 +44,8 @@ class DatastoreProcessor():
             entity[dbconsts.SONG.REP_THUMB_URL]).set_video_id(entity[dbconsts.SONG.REP_VIDEO_ID])
 
         return self.builder.get_result()
+
+    def convert_property_range_json_to_property_object(self, properties_json):
+        self.log.debug('convert_property_range_json_to_property_object')
+
+        return

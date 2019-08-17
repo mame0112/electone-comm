@@ -1,3 +1,27 @@
+Basic
+<div>
+  難易度
+  <select id="difficulty_rank" placeholder="Difficulty"  [(ngModel)]="difficulty_rank" required>
+  <option *ngFor="let difficulty_rank of difficulty_values()" [value]="difficulty_rank">
+  {{difficulty_rank}}</option>
+  </select>
+</div>
+<div>
+  コンサート向き度合い
+  <select id="concert_rank" placeholder="Concert"  [(ngModel)]="concert_rank" required>
+  <option *ngFor="let concert_rank of concert_values()" [value]="concert_rank">
+  {{concert_rank}}</option>
+  </select>
+</div>
+<div>
+  有名度合い
+  <select id="famous_rank" placeholder="Famous"  [(ngModel)]="famous_rank" required>
+  <option *ngFor="let famous_rank of famous_values()" [value]="famous_rank">
+  {{famous_rank}}</option>
+  </select>
+</div>
+
+Advance
 <div>
   <label>Difficulty:
     <input [(ngModel)]="difficulty" placeholder="difficulty"/>
