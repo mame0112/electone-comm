@@ -1,46 +1,63 @@
-Basic
-<div>
-  難易度
-  <select id="difficulty_rank" placeholder="Difficulty"  [(ngModel)]="difficulty_rank" required>
-  <option *ngFor="let difficulty_rank of difficulty_values()" [value]="difficulty_rank">
-  {{difficulty_rank}}</option>
-  </select>
-</div>
-<div>
-  コンサート向き度合い
-  <select id="concert_rank" placeholder="Concert"  [(ngModel)]="concert_rank" required>
-  <option *ngFor="let concert_rank of concert_values()" [value]="concert_rank">
-  {{concert_rank}}</option>
-  </select>
-</div>
-<div>
-  有名度合い
-  <select id="famous_rank" placeholder="Famous"  [(ngModel)]="famous_rank" required>
-  <option *ngFor="let famous_rank of famous_values()" [value]="famous_rank">
-  {{famous_rank}}</option>
-  </select>
+<div id="collapseExample" [ngbCollapse]="isCollapsed">
+  <div class="card">
+    <div class="card-body">
+      <div>
+        難易度
+        <select id="difficulty_rank" placeholder="Difficulty"  [(ngModel)]="difficulty_rank" required>
+        <option *ngFor="let difficulty_rank of difficulty_values()" [value]="difficulty_rank">
+        {{difficulty_rank}}</option>
+        </select>
+      </div>
+      <div>
+        コンサート向き度合い
+        <select id="concert_rank" placeholder="Concert"  [(ngModel)]="concert_rank" required>
+        <option *ngFor="let concert_rank of concert_values()" [value]="concert_rank">
+        {{concert_rank}}</option>
+        </select>
+      </div>
+      <div>
+        有名度合い
+        <select id="famous_rank" placeholder="Famous"  [(ngModel)]="famous_rank" required>
+        <option *ngFor="let famous_rank of famous_values()" [value]="famous_rank">
+        {{famous_rank}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
 </div>
 
-Advance
-<div>
-  <label>Difficulty:
-    <input [(ngModel)]="difficulty" placeholder="difficulty"/>
-  </label>
+<div id="collapseExample" [ngbCollapse]="!isCollapsed">
+  <div class="card">
+    <div class="card-body">
+      <div>
+        <label>Difficulty:
+          <input [(ngModel)]="difficulty" placeholder="difficulty"/>
+        </label>
+      </div>
+      <div>
+        <label>Concert:
+          <input [(ngModel)]="concert" placeholder="concert"/>
+        </label>
+      </div>
+      <div>
+        <label>Famous:
+          <input [(ngModel)]="famous" placeholder="famous"/>
+        </label>
+      </div>
+
+    </div>
+  </div>
 </div>
-<div>
-  <label>Concert:
-    <input [(ngModel)]="concert" placeholder="concert"/>
-  </label>
-</div>
-<div>
-  <label>Famous:
-    <input [(ngModel)]="famous" placeholder="famous"/>
-  </label>
-</div>
+
+
+<p>
+  <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed" [ngbCollapse]="isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+  詳細設定
+  </button>
+
+  <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed" [ngbCollapse]="!isCollapsed" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+  かんたん設定
+  </button>
+</p>
 
 <button type="button" class="btn btn-primary" (click)="onSearchClicked()">Search</button>
-
-
-<li *ngFor="let content of contents">
-    {{content.title}}
-</li>

@@ -20,6 +20,8 @@ import { Famous } from './search-commandprocessor';
 })
 export class SearchPanelComponent implements OnInit {
 
+    public isCollapsed = false;
+
     // For 
     difficulty = 1;
     concert = 1;
