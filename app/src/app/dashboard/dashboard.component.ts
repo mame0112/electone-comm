@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Constants } from '../constants';
+
 import { ContentData } from '../contentdata';
 
 import { ApiService } from '../api.service';
@@ -27,7 +29,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
       console.log('Dashboard onInit');
 
-      this.gaService.sendPageView("dashboard");
+      this.gaService.sendPageView(Constants.GA_VIEW_DASHBOARD);
 
 
       this.apiService.getRecommendContents()

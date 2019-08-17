@@ -226,6 +226,7 @@ class DatastoreManager:
 
     def get_content_by_property(self, properties):
         self.log.debug('get_content_by_property')
+        self.log.debug(properties)
 
         obj = json.loads(properties)
         difficulty = obj['difficulty']

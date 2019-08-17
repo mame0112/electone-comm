@@ -8,6 +8,7 @@ import { MiniContentData } from '../minicontentdata';
 
 import { ApiService } from '../api.service';
 import { DataProcessorService } from '../data-processor.service';
+import { GaService } from '../ga.service';
 
 import { Constants } from '../constants';
 
@@ -25,11 +26,13 @@ export class SongDetailComponent implements OnInit {
         private route: ActivatedRoute,
         private location: Location,
         private apiService: ApiService,
-        private dataProcessorService: DataProcessorService
+        private dataProcessorService: DataProcessorService,
+        private gaService: GaService
     ) { }
 
     ngOnInit() {
         this.getSong();
+        this.gaService.sendPageView(Constants.GA_VIEW_DETAIL);
     }
 
     getSong(): void {

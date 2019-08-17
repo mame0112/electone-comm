@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+import { Constants } from './constants';
+
 declare let gtag: any;
 
 @Injectable({
@@ -16,7 +18,7 @@ export class GaService {
   sendPageView(url: string): void {
     // if (!this.useGA()) { return; }
     // if (!url.startsWith('/')) { url = /${url}; }
-    gtag('config', 'UA-48246180-7', {
+    gtag('config', Constants.GA_UA, {
       'page_path': url
     });
   }

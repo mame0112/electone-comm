@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Constants } from '../constants';
+
 import { FormsModule } from '@angular/forms';
 
 import { ApiService } from '../api.service';
-import { DataProcessorService } from '../data-processor.service';
+import { DataProcessorService } from '../data-processor.service'; 
+import { GaService } from '../ga.service';
 
 import { MiniContentData } from '../minicontentdata';
 
@@ -50,7 +53,8 @@ export class SearchPanelComponent implements OnInit {
 
 
     constructor(private apiService: ApiService,
-        private dataProcessorService: DataProcessorService) { }
+        private dataProcessorService: DataProcessorService,
+        private gaService: GaService) { }
 
     ngOnInit() {
     }
@@ -70,6 +74,9 @@ export class SearchPanelComponent implements OnInit {
 
         this.apiService.searchContentByProperties(JSON.stringify(this.properties))
         .subscribe(results => this.contents = this.dataProcessorService.parseJson2MiniContentsData(results));
+
+        //TODO
+        this.gaService.sendEvent(Constants.GA_EVENT_USER_ACTION, Constants.GA_EVENT_CATEGORY_SEARCH, Constants.GA_EVENT_ACTION_BASIC_CLICK, 1);
 
     }
 
